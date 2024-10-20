@@ -85,7 +85,7 @@ export default async function Home({
       <Homebar />
       <Toast />
 
-      <div className="px-10 my-4">
+      <div className="px-10 mt-[-90px]">
         <Categories /> {/* Categories section */}
       </div>
 
