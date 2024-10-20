@@ -40,7 +40,7 @@ const MeetOurAgentsSection = () => {
   return (
     <section className="py-16">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold">Meet Our Agents</h2>
+        <h2 className="text-3xl font-bold">Meet Our Advisors</h2>
         <p className="text-gray-600">Flatpur connects you with top agents who provide personalized assistance for all your real estate needs</p>
       </div>
 
