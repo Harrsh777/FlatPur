@@ -11,7 +11,7 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
   bottom = "135px", // Default bottom position   
   right = "20px",  // Default right position 
 }) => {   
-  const phoneNumber = "8004959778"; // Replace with your desired phone number without country code
+  const phoneNumber = "+918004959778"; // Replace with your desired phone number without country code
   
   const handleWhatsAppClick = () => {     
     window.open(`https://wa.me/${phoneNumber}`, "_blank");   
