@@ -64,22 +64,22 @@ const ClientSection: React.FC = () => {
         <FeatureBox
           icon={<FaUserTie size={32} color="black" />}
           title="Expert Advisor"
-          description="Eli este cillum dolore eu fugiat nulla pariatur"
+          description="Experienced property consultants guide you in finding the perfect home or investment."
         />
         <FeatureBox
           icon={<FaHeadset size={32} color="black" />}
           title="Effective Support"
-          description="Quis nostrud exerci ullamco ea nisi ut aliquip com dolor"
+          description="Prompt assistance for all your real estate queries and concerns."
         />
         <FeatureBox
           icon={<FaDollarSign size={32} color="black" />}
           title="Low Fees"
-          description="Cupidatat non proident, sunt in culpa qui officia deserunt"
+          description="Competitive service fees to ensure maximum value for your investment"
         />
         <FeatureBox
           icon={<FaBuilding size={32} color="black" />}
           title="Loan Facility"
-          description="Quis nostrud exerci ullamco ea nisi ut aliquip com dolor"
+          description="Access flexible home loan options tailored to your financial needs"
         />
       </div>
     </div>
