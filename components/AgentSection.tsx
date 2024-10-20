@@ -64,7 +64,7 @@ const MeetOurAgentsSection = () => {
                 <img src="/images/twitter.png" alt="Twitter" className="w-6 h-6" />
               </a>
               <a href={agent.social.facebook}>
-                <img src="/images/instagram.png" alt="Facebook" className="w-6 h-6" />
+                <img src="/images/Instagram.png" alt="Facebook" className="w-6 h-6" />
               </a>
               <a href={agent.social.linkedin}>
                 <img src="/images/google.png" alt="LinkedIn" className="w-6 h-6" />
