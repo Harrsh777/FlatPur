@@ -1,0 +1,76 @@
+.custom-calendar {
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px; /* Make the font size smaller */
+    height: 385px;
+  width: 500px;
+  }
+  button.react-calendar__tile {
+    padding: 5px 10px; /* Smaller button padding */
+    font-size: 12px; /* Smaller text size */
+  }.small-button {
+    font-size: 12px;
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 100%; /* Make buttons full width */
+  }
+  
+  .book-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #6A5ACD;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .book-button-small {
+    width: 80px; /* Make the "Book Now" button smaller */
+    margin-top: 20px;
+  }
+  .custom-calendar .react-calendar__navigation button {
+    color: #6A5ACD;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+  }
+  
+  .custom-calendar .react-calendar__tile {
+    background: #fff;
+    color: #333;
+    border-radius: 6px;
+    margin: 5px;
+    font-size: 14px;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-calendar .react-calendar__tile:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .custom-calendar .react-calendar__tile--active {
+    background-color: #6A5ACD;
+    color: white;
+    border-radius: 6px;
+  }
+  
+  .custom-calendar .react-calendar__tile--now {
+    background-color: #f5f5f5;
+  }
+  
+  .custom-calendar .react-calendar__month-view__days__day--weekend {
+    color: #d9534f;
+  }
+  
+  .custom-calendar .react-calendar__month-view__days__day--neighboringMonth {
+    color: #888;
+  }
+  
