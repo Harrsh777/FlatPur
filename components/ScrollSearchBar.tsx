@@ -136,9 +136,9 @@ const ScrollSearchBar = ({ session }: { session: object | null }) => {
                 >
                   <h3 className="font-semibold text-lg mb-2">CONTACT US</h3>
                   <p className="text-sm text-gray-600">Toll Free | 9:30 AM to 6:30 PM</p>
-                  <p className="text-lg font-bold">1800-41-99099</p>
+                  <p className="text-lg font-bold">+91 8004959778</p>
                   <p className="text-sm text-gray-600 mt-2">For International Users</p>
-                  <p className="text-lg font-bold">+91-120-6637501</p>
+                  <p className="text-lg font-bold">+91 8004959778</p>
                   <button className="mt-4 bg-blue-600 text-white w-full py-2 rounded-lg">
                     Request a Call Back
                   </button>
