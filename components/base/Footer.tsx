@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
               <h3 className="font-bold mb-2">ADVERTISERS</h3>
               <ul>
                 <li><a href="#" className="hover:underline">Advertise</a></li>
-                <li><a href="/addhome" className="hover:underline">Add a Property</a></li>
+                <li><a href="#" className="hover:underline">Add a Property</a></li>
                 <li><a href="#" className="hover:underline">Digital Feeds Program</a></li>
                 <li><a href="#" className="hover:underline">Customer Portal</a></li>
                 <li><a href="#" className="hover:underline">Community Voice</a></li>
