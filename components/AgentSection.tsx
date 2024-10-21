@@ -3,9 +3,9 @@ import React from 'react';
 const agents = [
   {
     name: "Kamil Pathan",
-    role: "Agent",
+    role: "Advisor",
     image: "/images/kamil.JPG",
-    bio: "Meet our expert agent,Kamil, dedicated to finding your dream home with personalized service and local knowledge.",
+    bio: "Meet our expert advisor,Kamil, dedicated to finding your dream home with personalized service and local knowledge.",
     social: {
       twitter: "#",
       facebook: "#",
@@ -14,9 +14,9 @@ const agents = [
   },
   {
     name: "Ahtisham Hussain",
-    role: "Agent",
+    role: "Advisor",
     image: "/images/ahtisham.jpg",
-    bio: "Introducing Ahtisham, your trusted real estate agent, committed to guiding you through every step of your property journey.",
+    bio: "Introducing Ahtisham, your trusted real estate advisor, committed to guiding you through every step of your property journey.",
     social: {
       twitter: "#",
       facebook: "#",
@@ -25,7 +25,7 @@ const agents = [
   },
   {
     name: "Asif Hussain",
-    role: "Agent",
+    role: "Advisor",
     image: "/images/asif.jpg",
     bio: "Say hello to Asif, a passionate real estate professional ready to help you navigate the market with ease.",
     social: {
