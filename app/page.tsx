@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";  // <-- Add this line
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import InteractiveBanner from "@/components/InteractiveBanner";
@@ -26,7 +27,7 @@ import ContactSection from "@/components/ContactDetails";
 import HelpSection from "@/components/HelpSection";
 import ReviewSection from "@/components/ReviewSection";
 import Footer from "@/components/base/Footer";
-import HomeCardList from "@/components/HomeCardList"; // Import the client component
+import HomeCardList from "@/components/HomeCardList";
 import AgentSection from "@/components/AgentSection";
 import Homebar from "@/components/base/Homebar";
 
@@ -59,13 +60,11 @@ export default async function Home({
 
   const { data: trendingHomes } = await trendingQuery;
 
-  // Map through trendingHomes to extract the first image as 'image'
   const trendingHomesWithImage = trendingHomes?.map((home) => ({
     ...home,
-    image: home.images?.[0] || null, // Use the first image or fallback to null
+    image: home.images?.[0] || null,
   }));
 
-  // Query to fetch under-construction homes
   const underConstructionQuery = supabase
     .from("homes")
     .select("id, images, title, country, city, price")
@@ -73,7 +72,6 @@ export default async function Home({
 
   const { data: underConstructionHomes } = await underConstructionQuery;
 
-  // Map through underConstructionHomes to extract the first image as 'image'
   const underConstructionWithImage = underConstructionHomes?.map((home) => ({
     ...home,
     image: home.images?.[0] || null,
@@ -86,14 +84,16 @@ export default async function Home({
       <Toast />
       <Head>
         <title>Flatpur™ Official Site | Buy/Sell/Rent Properties</title>
-        <meta name="description" content="Leading real estate platform in Kanpur offering a wide range of residential and commercial properties. Whether you're buying, renting, or investing, explore property listings, market trends, and price predictions. Trusted by Kanpur home buyers, real estate investors, and those seeking flats, plots, or commercial spaces. Featuring affordable housing, luxury flats, and new property developments. Get expert real estate insights and personalized services. Your go-to platform for Kanpur realty, whether you're searching for properties for sale or rental options in the Kanpur real estate market." />
+        <meta
+          name="description"
+          content="Leading real estate platform in Kanpur offering a wide range of residential and commercial properties. Whether you're buying, renting, or investing, explore property listings, market trends, and price predictions. Trusted by Kanpur home buyers, real estate investors, and those seeking flats, plots, or commercial spaces. Featuring affordable housing, luxury flats, and new property developments. Get expert real estate insights and personalized services. Your go-to platform for Kanpur realty, whether you're searching for properties for sale or rental options in the Kanpur real estate market."
+        />
       </Head>
 
       <div className="px-10 mt-[-90px]">
-        <Categories /> {/* Categories section */}
+        <Categories />
       </div>
 
-      {/* General Homes Section */}
       <HomeCardList homes={homes} />
 
       <ScrollSearchBar session={null} />
@@ -103,12 +103,13 @@ export default async function Home({
       <WhatsAppButton />
       <CommercialSpacesSection />
 
-      {/* Trending Properties Section */}
       {trendingHomesWithImage && trendingHomesWithImage.length > 0 ? (
         <TrendingProperties trendingHomes={trendingHomesWithImage} />
       ) : (
         <div className="text-center mt-4">
-          <h1 className="text-brand font-bold text-2xl">No Trending Properties found!</h1>
+          <h1 className="text-brand font-bold text-2xl">
+            No Trending Properties found!
+          </h1>
         </div>
       )}
 
@@ -116,9 +117,10 @@ export default async function Home({
       <RealEstateSection />
       <ClientSection />
 
-      {/* Under-Construction Projects Section */}
       {underConstructionWithImage && underConstructionWithImage.length > 0 && (
-        <UnderConstructionProjects underConstructionHomes={underConstructionWithImage} />
+        <UnderConstructionProjects
+          underConstructionHomes={underConstructionWithImage}
+        />
       )}
 
       <WhyChooseUsSection />
@@ -128,7 +130,7 @@ export default async function Home({
       <PostPropertySection />
       <PricePrediction />
       <BenefitsSection />
-      <AgentSection/>
+      <AgentSection />
       <FAQSection />
       <ContactSection />
       <HelpSection />
