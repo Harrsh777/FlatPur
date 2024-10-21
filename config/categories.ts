@@ -1,7 +1,7 @@
 export const categories: Array<CategoriesType> = [
   {
     name: "Buy",
-    icon: "/images/House.png", // Add the image address here
+    icon: "/images/house.png", // Add the image address here
     label: undefined
   },
   {
