@@ -88,6 +88,7 @@ export default async function Home({
           name="description"
           content="Leading real estate platform in Kanpur offering a wide range of residential and commercial properties. Whether you're buying, renting, or investing, explore property listings, market trends, and price predictions. Trusted by Kanpur home buyers, real estate investors, and those seeking flats, plots, or commercial spaces. Featuring affordable housing, luxury flats, and new property developments. Get expert real estate insights and personalized services. Your go-to platform for Kanpur realty, whether you're searching for properties for sale or rental options in the Kanpur real estate market."
         />
+        <link rel="icon" href="/favicon.png"/>
       </Head>
 
       <div className="px-10 mt-[-90px]">
