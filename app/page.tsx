@@ -86,7 +86,7 @@ export default async function Home({
       <Toast />
       <Head>
         <title>Flatpur™ Official Site | Buy/Sell/Rent Properties</title>
-        <meta name="description" content="Leading real estate platform offering a comprehensive selection of residential and commercial properties. Whether you're buying, renting, or investing, explore detailed listings, market trends, and future price predictions. Trusted by buyers and investors for expert insights and personalized services.Leading real estate platform based in Kanpur, offering a comprehensive selection of residential and commercial properties. Whether you're buying, renting, or investing, explore detailed listings, market trends, and future price predictions. Trusted by buyers and investors for expert insights and personalized services." />
+        <meta name="description" content="Leading real estate platform in Kanpur offering a wide range of residential and commercial properties. Whether you're buying, renting, or investing, explore property listings, market trends, and price predictions. Trusted by Kanpur home buyers, real estate investors, and those seeking flats, plots, or commercial spaces. Featuring affordable housing, luxury flats, and new property developments. Get expert real estate insights and personalized services. Your go-to platform for Kanpur realty, whether you're searching for properties for sale or rental options in the Kanpur real estate market." />
       </Head>
 
       <div className="px-10 mt-[-90px]">
