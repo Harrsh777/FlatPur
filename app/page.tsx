@@ -84,6 +84,10 @@ export default async function Home({
       <InteractiveBanner />
       <Homebar />
       <Toast />
+      <Head>
+        <title>Flatpur™ Official Site | Buy/Sell/Rent Properties</title>
+        <meta name="description" content="Leading real estate platform offering a comprehensive selection of residential and commercial properties. Whether you're buying, renting, or investing, explore detailed listings, market trends, and future price predictions. Trusted by buyers and investors for expert insights and personalized services." />
+      </Head>
 
       <div className="px-10 mt-[-90px]">
         <Categories /> {/* Categories section */}
