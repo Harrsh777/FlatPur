@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
               </ul>
             </div>
           </div>
-          <div className="flex justify-center space-x-4 mt-4">
+          <div className="flex justify-center space-x-4 mt-6">
             <a href="#"><img src="/images/google (1).png" alt="Google" className="w-8 h-8 invert" /></a>
             <a href="#"><img src="/images/twitter.png" alt="Twitter" className="w-8 h-8 invert" /></a>
             <a href="https://www.instagram.com/flatpur/profilecard/?igsh=aHJrdzd0amV2Zjc3"><img src="/images/instagram.png" alt="Instagram" className="w-8 h-8 invert" /></a>
