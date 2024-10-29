@@ -179,8 +179,8 @@ const FullSearchBar: React.FC<FullSearchBarProps> = ({ handleClick, selectedCate
             width: auto; /* Allow button to resize appropriately */
           }
           .bg-white {
-            padding-left: 0; /* Remove extra padding on mobile */
-            padding-right: 0;
+            padding-left: 1; /* Remove extra padding on mobile */
+            padding-right: 1;
           }
         }
       `}</style>
