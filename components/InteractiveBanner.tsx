@@ -24,7 +24,7 @@ const InteractiveBanner: React.FC = () => {
   return (
     <div
       style={{
-        backgroundImage: 'url("/images/banner4.png")',
+        backgroundImage: 'url("/images/Banner4.png")',
         backgroundSize: "contain",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
