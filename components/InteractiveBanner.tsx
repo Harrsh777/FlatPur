@@ -24,13 +24,13 @@ const InteractiveBanner: React.FC = () => {
   return (
     <div
       style={{
-        backgroundImage: 'url("/images/Banner4.png")',
-        backgroundSize: "contain",
+        backgroundImage: 'url("/images/banner4.png")',
+        backgroundSize: "cover", // Change to cover for better responsiveness
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        height: isMobile ? "40vh" : "50vh", // Optional: Adjust height for mobile
-        margin: 0, // Set margin to 0
-        padding: 0, // Set padding to 0
+        height: isMobile ? "30vh" : "50vh", // Adjust height for mobile (e.g., 30vh)
+        margin: 0, // Ensure no margin
+        padding: 0, // Ensure no padding
         position: "relative",
         display: "flex",
         alignItems: "center",
