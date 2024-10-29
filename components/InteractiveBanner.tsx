@@ -28,7 +28,7 @@ const InteractiveBanner: React.FC = () => {
         backgroundSize: "cover", // Change to cover for better responsiveness
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        height: isMobile ? "30vh" : "50vh", // Adjust height for mobile (e.g., 30vh)
+        height: isMobile ? "40vh" : "50vh", // Adjust height for mobile (e.g., 30vh)
         margin: 0, // Ensure no margin
         padding: 0, // Ensure no padding
         position: "relative",
