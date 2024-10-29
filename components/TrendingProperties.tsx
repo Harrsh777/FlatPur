@@ -37,27 +37,15 @@ export default function TrendingProperties({ trendingHomes }: TrendingProperties
 
   // Handle the next button click
   const handleNext = () => {
-    if (window.innerWidth < 768) { // Mobile view
-      if (currentIndex < totalHomes - 1) {
-        setCurrentIndex((prev) => prev + 1); // Move to the next property (one at a time)
-      }
-    } else { // Desktop view
-      if (currentIndex < totalHomes - visibleHomes) {
-        setCurrentIndex((prev) => prev + 1); // Move to the next set of properties
-      }
+    if (currentIndex < totalHomes - 1) {
+      setCurrentIndex((prev) => Math.min(prev + 1, totalHomes - 1)); // Move to the next property (one at a time)
     }
   };
 
   // Handle the previous button click
   const handlePrev = () => {
-    if (window.innerWidth < 768) { // Mobile view
-      if (currentIndex > 0) {
-        setCurrentIndex((prev) => prev - 1); // Move to the previous property (one at a time)
-      }
-    } else { // Desktop view
-      if (currentIndex > 0) {
-        setCurrentIndex((prev) => prev - 1); // Move to the previous set of properties
-      }
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => Math.max(prev - 1, 0)); // Move to the previous property (one at a time)
     }
   };
 
@@ -79,12 +67,12 @@ export default function TrendingProperties({ trendingHomes }: TrendingProperties
         <div
           className="flex transition-transform duration-300"
           style={{
-            transform: `translateX(-${(currentIndex * (100 / (visibleHomes === 1 ? 1 : 4)))}%)`, // Adjust transform based on screen size
+            transform: `translateX(-${(currentIndex * 10) / visibleHomes}%)`, // Adjust for one property at a time
             width: `${(totalHomes * (100 / visibleHomes))}%`, // Set width based on visible homes
           }}
         >
           {trendingHomes.map((home) => (
-            <div key={home.id} className={`w-${100 / visibleHomes}% mx-2`}> {/* Adjust width dynamically */}
+            <div key={home.id} className={`w-${100 / visibleHomes}% mx-2`}>
               <HomeCard home={home} />
             </div>
           ))}
@@ -95,7 +83,7 @@ export default function TrendingProperties({ trendingHomes }: TrendingProperties
       <button
         className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-300 p-2 rounded-full"
         onClick={handleNext}
-        disabled={currentIndex >= (visibleHomes === 1 ? totalHomes - 1 : totalHomes - visibleHomes)} // Disable if at the end
+        disabled={currentIndex >= totalHomes - 1} // Disable if at the end
       >
         &#8250; {/* Right Arrow */}
       </button>
