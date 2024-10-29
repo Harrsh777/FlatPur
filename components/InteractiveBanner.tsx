@@ -3,14 +3,18 @@
 import React from 'react';
 
 const InteractiveBanner: React.FC = () => {
+  // Determine if the window width is below 640px (mobile)
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+
   return (
     <div
       style={{
-        backgroundImage: 'url("/images/banner4.png")',
+        backgroundImage: 'url("/images/Banner4.png")',
         backgroundSize: "contain",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        height: "50vh",
+        height: isMobile ? "40vh" : "50vh", // Adjust height for mobile if needed
+        margin: isMobile ? "0" : "auto", // Set margin to 0 on mobile
         position: "relative",
         display: "flex",
         alignItems: "center",
