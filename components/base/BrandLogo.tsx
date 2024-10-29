@@ -34,15 +34,7 @@ export default function BrandLogo() {
         style={{ margin: -80, padding: 10 }} // Adjust margins as needed
       />
       
-      {/* Smaller logo for small screens */}
-      <Image 
-        src="/images/Flatpur.png" 
-        width={300} 
-        height={300} 
-        alt="logo" 
-        className="lg:hidden object-contain"
-        style={{ margin: -45, padding: 0 }} // Adjust margins as needed
-      />
+     
     </button>
   );
 }
