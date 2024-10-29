@@ -169,7 +169,17 @@ const FullSearchBar: React.FC<FullSearchBarProps> = ({ handleClick, selectedCate
             padding-left: 2px;
           }
           .category-links a {
-            margin-left: 4px;
+            margin-right: 4px;
+          }
+          input {
+            width: 100%; /* Make input take full width */
+          }
+          button {
+            width: auto; /* Allow button to resize appropriately */
+          }
+          .bg-white {
+            padding-left: 1; /* Remove extra padding on mobile */
+            padding-right: 1;
           }
         }
       `}</style>
