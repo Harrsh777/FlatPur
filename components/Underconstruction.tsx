@@ -1,43 +1,57 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HomeCard from "@/components/common/HomeCard"; // Adjust the import according to your project structure.
 
 // Define the Home type
 type Home = {
-  id: string; // Keep as string
-  images: string[]; // Change this from 'string' to 'string[]'
+  id: string;
+  images: string[]; // Updated to string[] to match the expected type
   title: string;
   country: string;
   city: string;
-  price: string | number; // Allow both string and number
+  price: string; // or string | number if that's the case
 };
 
-interface UnderConstructionProjectsProps {
+interface UnderConstructionPropertiesProps {
   underConstructionHomes: Home[]; // This should be populated with all under-construction homes
 }
 
-export default function UnderConstructionProjects({ underConstructionHomes }: UnderConstructionProjectsProps) {
-  // Set the initial state for the visible properties
+export default function UnderConstructionProperties({ underConstructionHomes }: UnderConstructionPropertiesProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const visibleHomes = 4; // Number of visible properties at a time
+  const [visibleHomes, setVisibleHomes] = useState(4); // Default to 4 properties for larger screens
   const totalHomes = underConstructionHomes.length; // Total homes available
 
-  // Handle the next and previous button clicks
+  // Update the number of visible homes based on window size
+  useEffect(() => {
+    const updateVisibleHomes = () => {
+      setVisibleHomes(window.innerWidth < 768 ? 1 : 4); // Show 1 property on mobile, 4 on larger screens
+    };
+
+    updateVisibleHomes(); // Initial check on mount
+    window.addEventListener("resize", updateVisibleHomes); // Update on resize
+
+    return () => {
+      window.removeEventListener("resize", updateVisibleHomes); // Clean up on unmount
+    };
+  }, []);
+
+  // Handle the next button click
   const handleNext = () => {
-    if (currentIndex < totalHomes - visibleHomes) {
-      setCurrentIndex(currentIndex + 1);
+    if (currentIndex < totalHomes - 1) {
+      setCurrentIndex((prev) => Math.min(prev + 1, totalHomes - 1)); // Move to the next property (one at a time)
     }
   };
 
+  // Handle the previous button click
   const handlePrev = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+      setCurrentIndex((prev) => Math.max(prev - 1, 0)); // Move to the previous property (one at a time)
     }
   };
 
   return (
-    <div className="relative my-10 px-10">
-      <h2 className="text-2xl font-bold mb-6">Under Construction Projects</h2>
+    <div className="relative my-10 px-4 md:px-10">
+      <h2 className="text-2xl font-bold mb-6">Under Construction Properties</h2>
 
       {/* Left Arrow Button */}
       <button
@@ -53,12 +67,12 @@ export default function UnderConstructionProjects({ underConstructionHomes }: Un
         <div
           className="flex transition-transform duration-300"
           style={{
-            transform: `translateX(-${(currentIndex * 100) / visibleHomes}%)`,
-            width: `${(totalHomes * 25)}%`, // Set width based on total number of homes
+            transform: `translateX(-${(currentIndex * 25) / visibleHomes}%)`, // Adjust for one property at a time
+            width: `${(totalHomes * (100 / visibleHomes))}%`, // Set width based on visible homes
           }}
         >
           {underConstructionHomes.map((home) => (
-            <div key={home.id} className="w-1/4 mx-2">
+            <div key={home.id} className={`w-${100 / visibleHomes}% mx-2`}>
               <HomeCard home={home} />
             </div>
           ))}
@@ -69,7 +83,7 @@ export default function UnderConstructionProjects({ underConstructionHomes }: Un
       <button
         className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-300 p-2 rounded-full"
         onClick={handleNext}
-        disabled={currentIndex >= totalHomes - visibleHomes} // Disable if at the end
+        disabled={currentIndex >= totalHomes - 1} // Disable if at the end
       >
         &#8250; {/* Right Arrow */}
       </button>
