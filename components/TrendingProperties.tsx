@@ -67,7 +67,7 @@ export default function TrendingProperties({ trendingHomes }: TrendingProperties
         <div
           className="flex transition-transform duration-300"
           style={{
-            transform: `translateX(-${(currentIndex * 10) / visibleHomes}%)`, // Adjust for one property at a time
+            transform: `translateX(-${(currentIndex * 25) / visibleHomes}%)`, // Adjust for one property at a time
             width: `${(totalHomes * (100 / visibleHomes))}%`, // Set width based on visible homes
           }}
         >
