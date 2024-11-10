@@ -60,7 +60,7 @@ const ScrollSearchBar = ({ session }: { session: object | null }) => {
           left: 0;
           width: 100%;
           z-index: 50; /* Set a higher z-index */
-          background-color: #228322; /* Background color to overlay content */
+          background-color: white; /* Background color to overlay content */
         }
       `}</style>
       <div
