@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { FaHeadset, FaArrowUp } from 'react-icons/fa'; // Add FaArrowUp for the upward arrow
 import { useRouter } from "next/navigation";
+import NavMenu from "./base/NavMenu";
 
 const ScrollSearchBar = ({ session }: { session: object | null }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -149,7 +150,9 @@ const ScrollSearchBar = ({ session }: { session: object | null }) => {
               )}
             </div>
           </div>
-
+          <div className="ml-0" style={{ marginLeft: '-5px',  marginRight:"20px" }}>
+            <NavMenu session={session} />
+           </div>
           {/* Upward Arrow Button */}
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2"> {/* Positioned at bottom center */}
             <button
