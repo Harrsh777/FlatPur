@@ -12,7 +12,7 @@ const ContactSection: React.FC = () => {
         </div>
         <div style={styles.card}>
           <div style={styles.icon}>✉️</div>
-          <h4 style={styles.heading}>amaaz@flatpur.com</h4>
+          <h4 style={styles.heading}>help@flatpur.com</h4>
           <p style={styles.text}>Have questions? Email us anytime, and our team will respond promptly to assist you.</p>
         </div>
         <div style={styles.card}>
