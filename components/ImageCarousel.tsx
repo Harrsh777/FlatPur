@@ -26,13 +26,13 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
 
   return (
     <div className="relative">
-      <div className="image-container w-full h-[500px] overflow-hidden flex items-center justify-center my-5">
+      <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] overflow-hidden my-5">
         <Image
           src={currentImageUrl}
           alt="home_img"
-          layout="fill" // Use layout fill for responsive image
-          objectFit="contain" // Contain the image
-          className="rounded-lg" // Keep rounded corners
+          fill
+          sizes="100vw"
+          className="object-contain rounded-lg"
           unoptimized
         />
       </div>
@@ -40,13 +40,13 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
         <>
           <button
             onClick={handlePreviousImage}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2"
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white shadow-sm rounded-full p-2"
           >
             &lt; {/* Left Arrow */}
           </button>
           <button
             onClick={handleNextImage}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2"
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white shadow-sm rounded-full p-2"
           >
             &gt; {/* Right Arrow */}
           </button>

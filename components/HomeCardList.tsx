@@ -14,7 +14,7 @@ export default function HomeCardList({ homes }: { homes: any[] | null }) {
     <div>
       {/* General Homes Section */}
       {homes && homes.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 px-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-5 px-4 sm:px-6 md:px-8 lg:px-10">
           {homes.slice(0, visibleHomes).map((item) => (
             <HomeCard home={item} key={item.id} />
           ))}

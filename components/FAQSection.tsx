@@ -31,44 +31,38 @@ const faqData: FAQItem[] = [
 
 const FAQSection: React.FC = () => {
   return (
-    <div style={{ display: "flex", justifyContent: "center", padding: "40px" }}>
-      {/* Left Side */}
-      <div style={{ width: "30%", paddingRight: "20px" }}>
-        <h2 style={{ fontSize: "42px", fontWeight: "bold", marginBottom: "10px" }}>
-          Questions  &
-        </h2>
-        <h2 style={{ fontSize: "42px", fontWeight: "bold", marginBottom: "10px" }}>
-        Answers
-        </h2>
-        <p style={{ fontSize: "16px", color: "gray", marginBottom: "20px" }}>
-          Don't find the answer? We can help
-        </p>
-        {/* Horizontal Line */}
-        <div style={{ height: "2px", backgroundColor: "#ccc", marginBottom: "20px" }}></div>
-        {/* Contact Us Button */}
-        <button
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "green",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-            fontSize: "16px",
-          }}
-          onClick={() => window.location.href = "mailto:support@example.com"} // Replace with your contact URL
-        >
-          Contact us
-        </button>
-      </div>
+    <section className="w-full bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+          {/* Left */}
+          <div className="lg:col-span-1">
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+              Questions &
+            </h2>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+              Answers
+            </h2>
+            <p className="mt-4 text-gray-600 text-sm sm:text-base">
+              Don't find the answer? We can help
+            </p>
+            <div className="my-6 h-px bg-gray-200" />
+            <button
+              className="inline-flex items-center rounded-lg bg-green-600 text-white px-5 py-3 text-sm sm:text-base font-medium shadow-sm hover:bg-green-700 active:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors"
+              onClick={() => (window.location.href = "mailto:support@example.com")}
+            >
+              Contact us
+            </button>
+          </div>
 
-      {/* FAQ Section */}
-      <div style={{ width: "60%" }}>
-        {faqData.map((item, index) => (
-          <FAQItem key={index} question={item.question} answer={item.answer} />
-        ))}
+          {/* Right */}
+          <div className="lg:col-span-2 divide-y divide-gray-200 rounded-xl ring-1 ring-gray-100 bg-white">
+            {faqData.map((item, index) => (
+              <FAQItem key={index} question={item.question} answer={item.answer} />
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
@@ -76,38 +70,26 @@ const FAQItem: React.FC<FAQItem> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div style={{ marginBottom: "15px", borderBottom: "1px solid #e0e0e0" }}>
+    <div className="px-4 sm:px-6 py-4 sm:py-5">
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        style={{
-          width: "100%",
-          background: "none",
-          border: "none",
-          textAlign: "left",
-          fontSize: "18px",
-          padding: "10px",
-          cursor: "pointer",
-          fontWeight: "bold",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
+        type="button"
+        aria-expanded={isOpen}
+        onClick={() => setIsOpen((v) => !v)}
+        className="w-full flex items-center justify-between text-left"
       >
-        {question}
-        <span>{isOpen ? "-" : "+"}</span>
+        <span className="text-base sm:text-lg font-semibold">{question}</span>
+        <span className="ml-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-700">
+          {isOpen ? "-" : "+"}
+        </span>
       </button>
-      {isOpen && (
-        <div
-          style={{
-            padding: "10px",
-            borderLeft: "3px solid #007bff",
-            marginTop: "5px",
-            backgroundColor: "#f9f9f9",
-          }}
-        >
-          {answer}
+      <div
+        className={`${isOpen ? 'mt-3' : 'mt-0'} overflow-hidden transition-[max-height,margin] duration-300 ease-in-out`}
+        style={{ maxHeight: isOpen ? 500 : 0 }}
+      >
+        <div className="pl-0 sm:pl-2 border-l-0 sm:border-l-2 border-green-500 bg-gray-50 rounded-lg sm:rounded-none mt-2">
+          <p className="p-4 text-sm sm:text-base text-gray-700">{answer}</p>
         </div>
-      )}
+      </div>
     </div>
   );
 };

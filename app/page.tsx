@@ -91,13 +91,15 @@ export default async function Home({
         <link rel="icon" href="/favicon.png"/>
       </Head>
 
-      <div className="px-10 mt-[-90px]">
+      <div className="px-4 sm:px-6 md:px-8 lg:px-10 mt-4 sm:mt-2">
         <Categories />
       </div>
 
       <HomeCardList homes={homes} />
 
-      <ScrollSearchBar session={null} />
+      <div className="px-4 sm:px-6 md:px-8 lg:px-10">
+        <ScrollSearchBar session={null} />
+      </div>
       <FloatingBookAVisit />
       <ChatAssistant />
       <PropertyTypesSection />
