@@ -65,104 +65,64 @@ const ScrollSearchBar = ({ session }: { session: object | null }) => {
         }
       `}</style>
       <div
-        className={`fixed transition-all duration-500 ease-in-out ${isScrolled ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
-        style={{ height: '85px' }} // Set the height of the scroll search bar
+        className={`fixed inset-x-0 transition-transform duration-500 ease-in-out ${isScrolled ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
+        style={{ height: '70px' }}
       >
-        <div className="flex items-center h-full relative"> {/* Ensure full height */}
-          <button onClick={handleLogoClick} className="focus:outline-none">
-            <div className="h-full flex items-center" style={{ marginLeft: '-10px', marginTop:"35px" }}> {/* Left margin for the logo */}
-              <img
-                src="/images/Flatpur.png"
-                alt="Logo"
-                className="h-64" // Set height for the logo
-                style={{ objectFit: 'contain' }} // Optional: Maintain aspect ratio and prevent distortion
-              />
-            </div>
+        <div className="h-full w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 flex items-center gap-2 sm:gap-3">
+          {/* Logo */}
+          <button onClick={handleLogoClick} className="flex-shrink-0 focus:outline-none">
+            <img src="/images/Flatpur.png" alt="Logo" className="h-10 sm:h-12 object-contain" />
           </button>
 
-          {/* Search Bar */}
-          <div className="flex-grow flex items-center bg-white border border-gray-300 rounded-full px-4 py-2">
+          {/* Search */}
+          <div className="flex-grow flex items-center bg-white border border-gray-200 rounded-full px-2 sm:px-3 py-1.5 sm:py-2 shadow-sm">
             <input
               type="text"
-              placeholder="Enter Locality / Project / Society / Landmark"
-              className="flex-grow outline-none text-gray-700"
+              placeholder="Search Locality / Project / Society / Landmark"
+              className="flex-grow outline-none text-sm sm:text-base text-gray-700 px-2"
             />
-            <div className="flex items-center space-x-2 ml-4">
-              <button className="p-2 rounded-full bg-blue-100">
-                {/* Search Icon */}
-              </button>
-              <button className="p-2 rounded-full bg-blue-100">
-                {/* Another Icon */}
-              </button>
-            </div>
-            <button className="ml-4 p-2 rounded-full bg-blue-600 text-white">
-              {/* Another Icon */}
-            </button>
+            <button className="h-9 w-9 rounded-full bg-green-600 text-white hidden sm:inline-flex items-center justify-center hover:bg-green-700" aria-label="Search" />
           </div>
 
-          {/* Post Property Button */}
-          <div className="ml-4">
-            <button
-              className="bg-green-500 text-white px-4 py-2 rounded-full"
-              onClick={() => {
-                window.location.href = "/addhome";
-              }}
-            >
-              Want to Post your Property? <span className="ml-1 bg-white text-green-500 px-2 py-1 rounded-full">FREE</span>
-            </button>
-          </div>
+          {/* CTA */}
+          <button
+            className="hidden md:inline-flex bg-green-600 text-white px-3 py-2 rounded-full text-sm hover:bg-green-700"
+            onClick={() => { window.location.href = "/addhome"; }}
+          >
+            Post Property <span className="ml-1 bg-white text-green-600 px-2 py-0.5 rounded-full">FREE</span>
+          </button>
 
-          {/* Clickable Round Icon Buttons */}
-          <div className="ml-4 flex items-center space-x-4">
-           
-            {/* User Profile and Headphone Icon */}
-            <div
-              className="relative"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div className="flex items-center space-x-4">
-                <button className="p-2 rounded-full bg-gray-100 ml-1 mr-5">
-                  <FaHeadset size={24} className="text-gray-500" />
-                </button>
+          {/* Support */}
+          <div className="relative hidden sm:block" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <button className="p-2 rounded-full bg-gray-100">
+              <FaHeadset size={18} className="text-gray-600" />
+            </button>
+            {isHovered && (
+              <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4">
+                <h3 className="font-semibold text-base mb-1">CONTACT US</h3>
+                <p className="text-xs text-gray-600">Toll Free | 9:30 AM to 6:30 PM</p>
+                <p className="text-base font-bold">+91 8004959778</p>
+                <p className="text-xs text-gray-600 mt-2">For International Users</p>
+                <p className="text-base font-bold">+91 8004959778</p>
+                <button className="mt-3 bg-blue-600 text-white w-full py-2 rounded-lg text-sm">Request a Call Back</button>
+                <p className="mt-2 text-xs">To check all the FAQ <a href="#" className="text-blue-600">click here</a></p>
               </div>
+            )}
+          </div>
 
-              {/* Dropdown menu */}
-              {isHovered && (
-                <div
-                  className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 transition-transform transform duration-300 ease-in-out"
-                  style={{ transform: 'translateY(0)', opacity: 1 }}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <h3 className="font-semibold text-lg mb-2">CONTACT US</h3>
-                  <p className="text-sm text-gray-600">Toll Free | 9:30 AM to 6:30 PM</p>
-                  <p className="text-lg font-bold">+91 8004959778</p>
-                  <p className="text-sm text-gray-600 mt-2">For International Users</p>
-                  <p className="text-lg font-bold">+91 8004959778</p>
-                  <button className="mt-4 bg-blue-600 text-white w-full py-2 rounded-lg">
-                    Request a Call Back
-                  </button>
-                  <p className="mt-2 text-sm">
-                    To check all the FAQ <a href="#" className="text-blue-500">click here</a>
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="ml-0" style={{ marginLeft: '-5px',  marginRight:"20px" }}>
+          {/* Menu */}
+          <div className="hidden sm:block">
             <NavMenu session={session} />
-           </div>
-          {/* Upward Arrow Button */}
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2"> {/* Positioned at bottom center */}
-            <button
-              onClick={scrollToTop}
-              className="p-1 bg-green-500 rounded-full shadow-md hover:bg-green-600 transition duration-300"
-              aria-label="Scroll to top"
-            >
-              <FaArrowUp size={16} className="text-black" /> {/* Smaller arrow with black color */}
-            </button>
           </div>
+
+          {/* Scroll to top */}
+          <button
+            onClick={scrollToTop}
+            className="ml-auto sm:ml-0 p-2 bg-green-500 rounded-full shadow-md hover:bg-green-600 transition duration-300"
+            aria-label="Scroll to top"
+          >
+            <FaArrowUp size={14} className="text-black" />
+          </button>
         </div>
       </div>
     </>

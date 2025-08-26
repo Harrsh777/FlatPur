@@ -123,12 +123,12 @@ const FullSearchBar: React.FC<FullSearchBarProps> = ({ handleClick, selectedCate
 
   return (
     <div className="w-full flex flex-col items-center relative" ref={searchRef}>
-      <div className="bg-white rounded-2xl shadow-md py-5 px-6 mb-6 w-full max-w-5xl transition-all duration-300 hover:shadow-lg">
-        <div className="flex flex-wrap justify-start gap-3 mb-5 category-links">
+      <div className="bg-white rounded-2xl shadow-md py-4 sm:py-5 px-4 sm:px-6 mb-4 sm:mb-6 w-full max-w-5xl transition-all duration-300 hover:shadow-lg">
+        <div className="flex flex-nowrap overflow-x-auto category-links gap-2 sm:gap-3 mb-4 sm:mb-5 pr-1">
           {categoryNames.map((cat) => (
             <button
               key={cat}
-              className={`flex items-center px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 ${category === cat ? 'bg-green-100 text-green-700' : 'text-gray-600 hover:bg-gray-100'}`}
+              className={`flex items-center whitespace-nowrap px-3 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 ${category === cat ? 'bg-green-100 text-green-700' : 'text-gray-600 hover:bg-gray-100'}`}
               onClick={() => cat === "All Properties" ? handleAllPropertiesClick() : handleClick(cat)}
             >
               {categoryIcons[cat]}
@@ -137,9 +137,9 @@ const FullSearchBar: React.FC<FullSearchBarProps> = ({ handleClick, selectedCate
           ))}
         </div>
 
-        <div className="w-full bg-white rounded-xl px-2 py-2 flex items-center justify-between border border-gray-200 transition-all duration-300 focus-within:border-green-500 focus-within:shadow-md">
-          <div className="flex-grow flex items-center">
-            <FiSearch className="text-gray-400 ml-3 mr-1" />
+        <div className="w-full bg-white rounded-xl px-2 py-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-0 border border-gray-200 transition-all duration-300 focus-within:border-green-500 focus-within:shadow-md">
+          <div className="flex-grow flex items-center order-1 sm:order-none">
+            <FiSearch className="text-gray-400 ml-3 mr-1 hidden sm:block" />
             <input
               type="text"
               placeholder={error || `Search in ${category ? category : "city, state, or title"}`}
@@ -147,7 +147,7 @@ const FullSearchBar: React.FC<FullSearchBarProps> = ({ handleClick, selectedCate
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyPress={handleKeyPress}
               onFocus={() => setIsFocused(true)}
-              className={`flex-grow px-4 py-3 outline-none bg-transparent ${error ? 'placeholder-red-300' : ''}`}
+              className={`flex-grow px-3 sm:px-4 py-2 sm:py-3 outline-none bg-transparent text-sm sm:text-base ${error ? 'placeholder-red-300' : ''}`}
             />
             {searchQuery && (
               <button onClick={clearSearch} className="p-1 rounded-full hover:bg-gray-100 transition-colors">
@@ -158,15 +158,13 @@ const FullSearchBar: React.FC<FullSearchBarProps> = ({ handleClick, selectedCate
           <button 
             onClick={handleSearch}
             disabled={loading}
-            className="ml-2 bg-green-500 text-white py-3 px-5 rounded-xl hover:bg-green-600 transition-all duration-200 flex items-center disabled:opacity-70"
+            className="sm:ml-2 bg-green-600 text-white h-10 w-10 sm:h-11 sm:w-11 rounded-full hover:bg-green-700 transition-all duration-200 flex items-center justify-center disabled:opacity-70"
+            aria-label="Search"
           >
             {loading ? (
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
             ) : (
-              <>
-                <FiSearch className="mr-2" />
-                Search
-              </>
+              <FiSearch className="" />
             )}
           </button>
         </div>
